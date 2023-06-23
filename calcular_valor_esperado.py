@@ -5,12 +5,10 @@ def calcular_odd_esperada(chance, odd_casa_apostas):
         return "A chance deve ser maior que zero."
     else:
         odd_esperada = 1 / (chance / 100)
-        if odd_esperada < odd_casa_apostas:
-            return f"Odd esperada: {round(odd_esperada, 2)}. Pode apostar, Odd EV+."
-        elif odd_esperada > odd_casa_apostas:
-            return f"Odd esperada: {round(odd_esperada, 2)}. Não aposte, Odd EV-."
-        else:
-            return f"Odd esperada: {round(odd_esperada, 2)}. O valor da Odd na casa de apostas é igual à Odd Esperada."
+        if odd_esperada > odd_casa_apostas:
+            return f"Odd esperada: <span style='color:green'>{round(odd_esperada, 2)}</span>. Pode apostar, Odd EV+."
+        elif odd_esperada <= odd_casa_apostas:
+            return f"Odd esperada: <span style='color:red'>{round(odd_esperada, 2)}</span>. Não aposte, Odd EV-."
 
 def main():
     st.title("Cálculo da Odd Esperada")
@@ -18,7 +16,7 @@ def main():
     odd_casa_apostas = st.number_input("Informe a Odd na casa de apostas:", min_value=0.01, value=2.0, step=0.01)
     odd_esperada = calcular_odd_esperada(chance, odd_casa_apostas)
 
-    st.write(odd_esperada)
+    st.markdown(odd_esperada, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
