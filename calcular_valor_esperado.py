@@ -12,7 +12,7 @@ def calcular_odd_esperada(chance, odd_casa_apostas):
 
 def main():
     st.title("Cálculo da Odd Esperada")
-    chance = st.number_input("Informe a chance:", min_value=0.01, max_value=100.0, value=50.0, step=0.01)
+    chance = st.number_input("Informe a probabilidade de vitória:", min_value=0.01, max_value=100.0, value=50.0, step=0.01)
     odd_casa_apostas = st.number_input("Informe a Odd na casa de apostas:", min_value=0.01, value=2.0, step=0.01)
     odd_esperada = calcular_odd_esperada(chance, odd_casa_apostas)
 
