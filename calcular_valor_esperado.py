@@ -5,10 +5,10 @@ def calcular_odd_esperada(chance, odd_casa_apostas):
         return "A chance deve ser maior que zero."
     else:
         odd_esperada = 1 / (chance / 100)
-        if odd_casa_apostas > odd_esperada:
-            return f"Odd esperada: {round(odd_esperada, 2)}. Só aposte se o valor da Odd na casa de apostas for maior que a Odd Esperada."
-        elif odd_casa_apostas < odd_esperada:
-            return f"Odd esperada: {round(odd_esperada, 2)}. Menor que esse valor é EV-."
+        if odd_esperada < odd_casa_apostas:
+            return f"Odd esperada: {round(odd_esperada, 2)}. Pode apostar, Odd EV+."
+        elif odd_esperada > odd_casa_apostas:
+            return f"Odd esperada: {round(odd_esperada, 2)}. Não aposte, Odd EV-."
         else:
             return f"Odd esperada: {round(odd_esperada, 2)}. O valor da Odd na casa de apostas é igual à Odd Esperada."
 
@@ -22,3 +22,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
