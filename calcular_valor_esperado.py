@@ -21,3 +21,5 @@ def main():
 if __name__ == "__main__":
     main()
 
+st.text("Desenvolvido por Lyssandro Silveira")
+
